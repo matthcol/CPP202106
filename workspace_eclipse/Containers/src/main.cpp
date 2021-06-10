@@ -8,10 +8,11 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iterator>
 
 using namespace std;
 
-int main(int argc, char **argv) {
+void scenario1() {
 	// std::vector<double> temperatures;
 	vector<double> temperatures;  // initialisation à un vecteur vide
 
@@ -93,6 +94,39 @@ int main(int argc, char **argv) {
 	}
 
 	cout << "That's all Folks" << endl;
+}
+
+void scenario2_it_vector() {
+	vector<string> voitures {"Peugeot 206", "Peugeot 106", "Renault Traffic", "Renault Clio RS", "Fiat"};
+
+	std::cout << "--- Liste de voitures (foreach) ---" << std::endl;
+	for (const auto & v	: voitures) {
+		std::cout << "\t* " << v << std::endl;
+	}
+
+	std::cout << " ---liste de voitures (iterator)--- " << std::endl;
+	for (auto it = voitures.begin() ; it != voitures.end() ; ++it) {
+		const auto & v = *it;
+		std::cout << "\t-" << v << std::endl;
+	}
+
+	std::cout << " ---liste de voitures (parcours partiel)--- " << std::endl;
+	auto it = voitures.begin();
+	// it += 2;
+	std::advance(it, 2);
+	auto fin = voitures.end();
+	//--fin; // fin -= 2;
+	std::advance(fin, -1);
+
+	for ( ; it != fin; ++it) {
+		std::cout << "\t# " << *it << std::endl;
+	}
+
+}
+
+int main(int argc, char **argv) {
+	// scenario1();
+	scenario2_it_vector();
 }
 
 

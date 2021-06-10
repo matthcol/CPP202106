@@ -135,6 +135,13 @@ int main() {
 		std::cout << "Compteur i= " << i << std::endl;
 	}
 
+	// ++x vs x++
+	int position = 10;
+	std::cout << "position++ : " << position++ << std::endl; // print position before ++
+	std::cout << "position : " << position << std::endl;
+	std::cout << "++position : " << ++position << std::endl; // print position after ++
+	std::cout << "position : " << position << std::endl;
+
 }
 
 
