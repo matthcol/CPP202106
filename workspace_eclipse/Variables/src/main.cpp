@@ -89,6 +89,52 @@ int main() {
 		std::cout << "Un peu trop cher pour un achat de groupe :(" << std::endl;
 	}
 
+	// conditionnelle switch case
+	std::cout << "Séquenche Achat #3" << std::endl;
+	int typeBonbon = 1;
+	// type 1 : Fraise tagada
+	// type 2 : Malabar
+	// type 3 : Carambar
+	// type 4 : roudoudou
+	// type 5 : réglisse
+	int total = 0;
+	switch (typeBonbon) {
+	case 1:
+		total = 100;
+		std::cout << "Fraise tagada, j'adore" << std::endl;
+		break;
+	case 2:
+		total = prixBonbon * 100;
+		std::cout << "Malabar. J'en achète pour: " << total << std::endl;
+		break;
+	default:  // type 3, 4 et 5
+		std::cout << "Autre produit: je note pour une autre fois" << std::endl;
+	}
+
+	// boucles
+	int cpt=1;
+	while (cpt < 10) {
+		int prixTotal = prixBonbon * cpt;
+		std::cout << "Prix total pour " << cpt << " bonbons : " << prixTotal << std::endl;
+		cpt += 1; // ++cpt;  // cpt++; //cpt = cpt + 1;
+	}
+	// operateurs contractés:
+	//	++cpt, cpt++, cpt--, --cpt, cpt += 4, cpt -= 10
+	//  cpt *= 2,  cpt /= 5, ...
+
+	// operator bitwise
+	unsigned char octet = 255;  // 11111111
+	unsigned char res = ~octet; // 00000000
+	std::cout << "Octet: " << static_cast<unsigned int>(octet) << std::endl;
+	std::cout << "not octet: " << static_cast<unsigned int>(res) << std::endl;
+	octet = 1; // 00000001
+	res = octet << 2; // 00000100
+	std::cout << "not octet: " << static_cast<unsigned int>(res) << std::endl;
+
+	for (int i=1; i<10; i++) {
+		std::cout << "Compteur i= " << i << std::endl;
+	}
+
 }
 
 
