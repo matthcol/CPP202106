@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <set>
 #include "Ville.h"
 
 void scenario1() {
@@ -80,11 +81,17 @@ void scenario3() {
 	delete brive_ptr;
 }
 
+//void scenario4_set() {
+//	Ville villeP("Pau",64, 77000);
+//	std::set<Ville>  villes {villeP};
+//}
+
 int main(int argc, char **argv) {
 	std::cout << "Welcome in Simu City ! " << std::endl;
 	// scenario1();
 	// scenario2();
-	scenario3();
+	// scenario3();
+	// scenario4_set(); // manque operator< pour le type Ville ou equivalent
 }
 
 
