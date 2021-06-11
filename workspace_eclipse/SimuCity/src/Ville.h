@@ -13,12 +13,14 @@
 #include <iostream>
 
 class Ville {
-public:
+// visibility: public, private, protected, friend
+private:
 	// 3 attributes
-	std::string nom;
-	uint16_t departement;
-	uint32_t population;
+	std::string m_nom;
+	uint16_t m_departement;
+	uint32_t m_population;
 
+public:
 	// constructors
 	Ville();
 	Ville(const std::string & nom, uint16_t departement, uint32_t population);
@@ -29,6 +31,29 @@ public:
 	// methods
 	std::string toString() const; // const: methode en lecture seule
 
+	constexpr uint16_t departement() const {
+		return m_departement;
+	}
+
+	constexpr void setDepartement(uint16_t mDepartement) {
+		m_departement = mDepartement;
+	}
+
+	constexpr const std::string& nom() const {
+		return m_nom;
+	}
+
+	void setNom(const std::string &mNom) {
+		m_nom = mNom;
+	}
+
+	constexpr uint32_t population() const {
+		return m_population;
+	}
+
+	constexpr void setPopulation(uint32_t mPopulation) {
+		m_population = mPopulation;
+	}
 };
 
 std::ostream & operator<<(std::ostream& os, const Ville & ville);

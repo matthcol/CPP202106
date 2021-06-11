@@ -251,17 +251,35 @@ void scenario8_algorithms() {
 	// auto ifFind2 = find_if(voitures.begin(), voitures.end(), filter_contains_peugeot);
 //	auto ifFind2 = find_if(voitures.begin(), voitures.end(),
 //			[](auto & v) { return filter_startby(v, "Renault");});
-	auto ifFind2 = find_if(voitures.begin(), voitures.end(),
-				[](auto & v) { return v == "Fiat"; });
+//	auto ifFind2 = find_if(voitures.begin(), voitures.end(),
+//				[](auto & v) { return v == "Fiat"; });
+	string marque = "Peugeot";
+	auto predicat = [marque](auto & v){ return v.find(marque) != string::npos; };
+	auto ifFind2 = find_if(voitures.begin(), voitures.end(), predicat);
 	if (ifFind2 != voitures.end()) {
 		cout << "Trouvé (2) : " << *ifFind2 << endl;
 	} else {
 		cout << "404 Not Found" << endl;
 	}
 
-	auto nb = count_if(voitures.begin(), voitures.end(), filter_contains_peugeot);
-	cout << "Nb peugeot : " << nb << endl;
+	// count_if
+	auto count_marque = count_if(voitures.begin(), voitures.end(), predicat);
+	cout << "Nombre de véhicule(s) '" << marque << "' trouvé(s) : " << count_marque << endl;
+}
 
+void scenario9_normalisation() {
+	vector<double> pressions {103.45, 102.34, 99.23, 121.34};
+	vector<double> resultats(pressions.size()); // vecteur de la taille du vecteur pressions
+	displayContainer(pressions, "--- pressions ---");
+	// normalisation : p => p/p^2
+	auto normalise = [](auto p) { return p / pow(p+1,2); };
+	// appliquer la normalisation à la main
+//	for (auto p: pressions) {
+//		auto p2 = normalise(p);
+//		cout << "\t*pression normalisée: " << p2 << endl;
+//	}
+	transform(pressions.begin(), pressions.end(), resultats.begin(), normalise);
+	displayContainer(resultats, "--- pressions normalisées ---", "\t* ");
 }
 
 int main(int argc, char **argv) {
@@ -272,8 +290,10 @@ int main(int argc, char **argv) {
 	// scenario5_list();
 	// scenario6_set();
 	// scenario7_pair();
-	scenario8_algorithms();
+	// scenario8_algorithms();
+	scenario9_normalisation();
 	std::cout << "That's all Folks" << std::endl;
+	return 0;
 }
 
 

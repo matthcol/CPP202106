@@ -17,3 +17,5 @@ Tools:
 	- Eclipse IDE for C/C++ Developers: https://www.eclipse.org/downloads/packages/ (
 	- Microsoft Visual Studio Code: https://code.visualstudio.com/
 	- Qt Creator: https://www.qt.io/
+	
+Pour aller plus loin: https://github.com/matthcol/CPP_202101.git

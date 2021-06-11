@@ -29,11 +29,20 @@ void displayIterable(InputIterator first, InputIterator last,
 		const std::string & titre = " -- Liste -- ",
 		const std::string & puce = "\t- ")
 {
-	std::cout << titre << std::endl;
+	auto count_iterable = std::distance(first, last);
+	std::cout << titre << "[" << count_iterable << "]" << std::endl;
 	for ( ; first != last; ++first) {
 		const auto & element = *first;
 		std::cout << puce << element << std::endl;
 	}
+}
+
+template<class Container>
+void displayContainer(const Container & container,
+		const std::string & titre = " -- Liste -- ",
+		const std::string & puce = "\t- ")
+{
+	displayIterable(container.begin(), container.end(), titre, puce);
 }
 
 template<class U, class V>
